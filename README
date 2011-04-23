@@ -9,25 +9,9 @@
 
 SATURN is a free, open-source Content Management System (CMS) that is easily integrated into your new or existing website. SATURN uses MySQL storage and PHP scripts to send and query information.
 
-SATURN is customizable and infinitely functional.
+SATURN is customizable and infinitely functional. Write your own plugins and add-ons with PHP.
 
-*****************************
- HOW TO INSTALL
-*****************************
-
-1) Using and FTP client (recommended), load the "saturn" directory to your server. It is recommended that you keep all SATURN files separate from your website files.
-
-2) Create a MySQL database named "saturn". DO NOT name it anything else, as SATURN will not be able to connect.
-
-3) Launch SATURN by visiting the directory on your website. Use the MySQL "saturn" database username and password. Once logged in, you should see a green connection indicator at the top of the page. If the connection failed, recheck the past steps.
-
-4) Go to (your_site).(com)/(saturn_directory)/startup.php (replace values in parenthesis with correct data). This page will create the tables necessary for SATURN to run. On this page, you will see a form asking for your MySQL address, database username, and database password. There is also an "Access Key". Your access key is:
-
-saturna3setupak.jc411
-
-5) Enter the correct information and click "Continue". The next page will attempt to create the database tables. If the Progress text stops before "Database format successful. All tables created.", you may have not entered all the information correctly. Use the "Retry" form below.
-
-6) That's it! SATURN is now installed. Visit http://saturn.jamescollinsdesign.com/?id=21 for more help integrating SATURN into your website.
+Learn More about SATURN here: saturn.jamescollinsdesign.com
 
 *****************************
  INFORMATION
