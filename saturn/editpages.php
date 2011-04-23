@@ -18,7 +18,7 @@ require('access.php');
 	$alertThree="none";
 	
 	if (empty($id)) {
-		$alteraction='<meta http-equiv="refresh" content="0;url= pages.php" />';
+		//$alteraction='<meta http-equiv="refresh" content="0;url= pages.php" />';
 	}
 		
 		//EDIT PAGE
@@ -27,12 +27,12 @@ require('access.php');
 		
 			$alertOne='none';
 
-			$query="SELECT id, name, content, note FROM $tablename WHERE id = '$id'";
-			$result=mysql_query($query);
+			$queryTwo="SELECT id, name, content, note FROM $tablename WHERE id = '$id'";
+			$resultTwo=mysql_query($queryTwo);
 			
-			$name=@mysql_result($result,null,"name");
-			$content=@mysql_result($result,null,"content");
-			$notes=mysql_result($result,null,"note");
+			$name=@mysql_result($resultTwo,null,"name");
+			$content=@mysql_result($resultTwo,null,"content");
+			$notes=mysql_result($resultTwo,null,"note");
 
 			
 		}
@@ -41,21 +41,21 @@ require('access.php');
 		
 		if ($action == 'saveedit') {
 			
-			$query = "UPDATE $tablename SET name = '$newpagename', content = '$newcontent', note = '$newnotes' WHERE id = '$id'";
-			mysql_query($query);
+			$queryTwo = "UPDATE $tablename SET name = '$newpagename', content = '$newcontent', note = '$newnotes' WHERE id = '$id'";
+			mysql_query($queryTwo);
 			
-			if (!mysql_query($query)) {
+			if (!mysql_query($queryTwo)) {
 				$alert = 'Error Saving - Please re-login to database';
 			} else {
 				$alert = 'Page saved';
 			}
 			
-			$queryTwo="SELECT id, name, content, note FROM $tablename WHERE id = '$id'";
-			$result=mysql_query($queryTwo);
+			$queryThree="SELECT id, name, content, note FROM $tablename WHERE id = '$id'";
+			$resultTwo=mysql_query($queryThree);
 			
-			$name=mysql_result($result,null,"name");
-			$content=mysql_result($result,null,"content");
-			$notes=mysql_result($result,null,"note");
+			$name=mysql_result($resultTwo,null,"name");
+			$content=mysql_result($resultTwo,null,"content");
+			$notes=mysql_result($resultTwo,null,"note");
 						
 			$alertOne='visible';
 			
@@ -65,21 +65,21 @@ require('access.php');
 		
 		if ($action == 'savenotes') {
 			
-			$query = "UPDATE $tablename SET note = '$newnotes' WHERE id = '$id'";
-			mysql_query($query);
+			$queryTwo = "UPDATE $tablename SET note = '$newnotes' WHERE id = '$id'";
+			mysql_query($queryTwo);
 			
-			if (!mysql_query($query)) {
+			if (!mysql_query($queryTwo)) {
 				$alert = 'Error Saving - Please re-login to database';
 			} else {
 				$alert = 'Page saved';
 			}
 			
-			$queryTwo="SELECT id, name, content, note FROM $tablename WHERE id = '$id'";
-			$result=mysql_query($queryTwo);
+			$queryThree="SELECT id, name, content, note FROM $tablename WHERE id = '$id'";
+			$resultTwo=mysql_query($queryThree);
 			
-			$name=mysql_result($result,null,"name");
-			$content=mysql_result($result,null,"content");
-			$notes=mysql_result($result,null,"note");
+			$name=mysql_result($resultTwo,null,"name");
+			$content=mysql_result($resultTwo,null,"content");
+			$notes=mysql_result($resultTwo,null,"note");
 			
 			$alertThree='visible';
 			
@@ -95,18 +95,18 @@ require('access.php');
 			
 			} elseif ($confirm == 'yes') {
 			
-				$query="DELETE FROM $tablename WHERE id='$id'";
-				mysql_query($query);
+				$queryTwo="DELETE FROM $tablename WHERE id='$id'";
+				mysql_query($queryTwo);
 				
 				$alteraction='<meta http-equiv="refresh" content="0;url= pages.php" />';
 				
 			} elseif (empty($confirm)) {
 				
-				$query="SELECT id, name, content FROM $tablename WHERE id = '$id'";
-				$result=mysql_query($query);
+				$queryTwo="SELECT id, name, content FROM $tablename WHERE id = '$id'";
+				$resultTwo=mysql_query($queryTwo);
 				
-				$name=@mysql_result($result,null,"name");
-				$content=@mysql_result($result,null,"content");
+				$name=@mysql_result($resultTwo,null,"name");
+				$content=@mysql_result($resultTwo,null,"content");
 				$alertTwo = 'visible';
 			}
 		}
@@ -115,8 +115,25 @@ require('access.php');
 		
 		if ($action == 'new') {
 		
-			$query="INSERT INTO $tablename VALUES ('','New Page','Content')";
-			mysql_query($query);
+			$name = 'New Page';
+			$content = 'Add New Content Here. Then click save to publish.';
+			$notes = 'Type page notes here. Notes are not publicly displayed.';
+			
+			$saveaction = 'new';
+			
+		}
+		
+		//SAVE NEW PAGE
+		
+		if ($action == 'savenew') {
+			
+			$newpagename = $_POST['newpagename'];
+			$newcontent = $_POST['newcontent'];
+			
+			$queryTwo="INSERT INTO  `$tablename` (  `id` ,  `name` ,  `content` ,  `note` ) VALUES (NULL ,  '$newpagename',  '$newcontent',  '$notes')";
+			mysql_query($queryTwo);
+			
+			$alteraction='<meta http-equiv="refresh" content="0;url= pages.php" />';
 			
 		}
 ?>
@@ -236,7 +253,7 @@ require('access.php');
 			<div class="separater" style="width: 970px;">
 			<h2>Edit</h2>
 			<div class="node" style="padding-left: 0; height: inherit; clear: both; min-height: 350px; text-align: center; width: 970px; float: none;">
-			<form action="?action=saveedit" method="post">
+			<form action="?action=save<? echo($saveaction) ?>" method="post">
 			Name: <input type="text" name="newpagename" maxlength="50" value="<? echo($name); ?>"> ID: <input type="text" readonly="readonly" style="width: 30px;" name="id" value="<? echo($id); ?>"><br><br>
 			Content<br>
 <textarea id="wysiwyg" rows="5" cols="240" style="width: 960px;" name="newcontent">
