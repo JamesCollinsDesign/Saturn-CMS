@@ -5,7 +5,7 @@ require('access.php');
 <?
 
 //TABLE NAMEs
-$dataOne = $dbuser.'contact';
+$dataOne = 'contact';
 
 if ($a == 'clear') {
 	
@@ -102,7 +102,7 @@ if ($a == 'delete') {
 			<h1>Data Entry</h1><br>
 			
 			<div class="separater">
-			<h2 style="float: left;">Entry: Guestbook</h2>
+			<h2 style="float: left;">Entry: Contact</h2>
 			<div style="float: right;">
 			<form style="padding-right: 10px; display: inline;">
 						<input type="submit" value="Refresh">
@@ -156,7 +156,7 @@ $i++;
 				<h3>Clearing All Entries</h3>
 				<p>Click the "Clear" button. Cannot be undone.</p><br>
 				<h3>Delete Specific Entry</h3>
-				<p>Type the entry ID (number to the left of entry title) in the box, then click the "Delete" button. Cannot be undone.</p><br>
+				<p>Hover to the right of an entry. Click the red delete button. Cannot be undone.</p><br>
 			</div>
 			</div>
 			

@@ -51,8 +51,6 @@
 				<li id="welcometab">Welcome</li>
 				&raquo;
 				<li id="setuptab">Set Up</li>
-				-
-				<li id="troubletab">Troubleshoot</li>
 			</ul>
 		</div>
 		

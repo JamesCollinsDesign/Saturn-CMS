@@ -4,7 +4,7 @@ require('access.php');
 
 <?php
 	//TABLE TO CALL
-	$tablename = $dbuser.'pages';
+	$tablename = 'pages';
 
 	//VARIABLES
 	

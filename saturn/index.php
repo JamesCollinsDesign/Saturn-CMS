@@ -2,32 +2,6 @@
 require('access.php');
 ?>
 
-<?php
-
-//let's get us some info!
-
-//TABLE NAME
-$tablename = $dbuser.'info';
-
-//QUERY
-$query = "SELECT * FROM `$tablename`";
-$result = @mysql_query($query);
-
-$pronum=@mysql_result($result,null,"pronum");
-$pubdate=@mysql_result($result,null,"pubdate");
-$root=@mysql_result($result,null,"rooturl");
-$domain=@mysql_result($result,null,"domreg");
-$host=@mysql_result($result,null,"hosting");
-$sbid=@mysql_result($result,null,"sandboxid");
-$devver=@mysql_result($result,null,"devversion");
-$csafile=@mysql_result($result,null,"csafile");
-$plan=@mysql_result($result,null,"csaplan");
-$privacy=@mysql_result($result,null,"privacy");
-$surfile=@mysql_result($result,null,"surveyfile");
-$surpub=@mysql_result($result,null,"surveypub");
-
-?>
-
 <!DOCTYPE html>
 <html>
 	<head>
@@ -54,16 +28,15 @@ $surpub=@mysql_result($result,null,"surveypub");
 			<!-- Content -->
 			<h1>Welcome to SATURN</h1><br>
 			
-			<!--<div class="separater" style="width: 970px; text-align: center;">
+			<div class="separater" style="width: 970px; text-align: center;">
 			<h2>Actions</h2>
 			<div class="node" style="width: 970px; height: 210px;">
 				<a href="pages.php"><div style="background: url(system/images/editpages.png); cursor: pointer; height: 210px; width: 220px; float: left;"></div></a>
-				<div style="background: url(system/images/specificcontent.png); cursor: pointer; height: 210px; width: 220px; float: left;"></div>
-				<div style="background: url(system/images/dataentry.png); cursor: pointer; height: 210px; width: 220px; float: left;"></div>
+				<a href="dataentry.php"><div style="background: url(system/images/dataentry.png); cursor: pointer; height: 210px; width: 220px; float: left;"></div></a>
 			</div>
-			</div>-->
+			</div>
 			
-			<div class="separater">
+			<!--<div class="separater">
 			<h2>Project Information</h2>
 			<div class="node">
 				<h3>Publishing</h3><br>
@@ -93,7 +66,7 @@ $surpub=@mysql_result($result,null,"surveypub");
 				<p>Filed: <? echo($surfile) ?></p><br>
 				<p>Published: <? echo($surpub) ?></p>
 			</div>
-			</div>
+			</div>-->
 
 			<div style="clear:both;">
 			<?php include("system/includes/footer.php"); ?>

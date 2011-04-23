@@ -4,7 +4,7 @@ require('access.php');
 
 <?php
 //TABLE TO CALL
-$tablename = $dbuser.'pages';
+$tablename = 'pages';
 
 //ADD PAGE
 		
@@ -112,11 +112,11 @@ $i++;
 			<h2>Help</h2>
 			<div class="node" style="padding-left: 10px;">
 				<h3>Editing Pages</h3>
-				<p>Type the page ID (number by each page name) in the box, select "Edit" and click "Go".</p><br>
+				<p>Hover to the right of a page name. Click the white edit button.</p><br>
 				<h3>Deleting Pages</h3>
-				<p>Type the page ID (number by each page name) in the box, select "Delete" and click "Go".</p><br>
+				<p>Hover to the right of a page name. Click the red delete button. Cannot be undone.</p><br>
 				<h3>Adding Pages</h3>
-				<p>Click the "Add Page" button. Then, type the page ID (number by the new page name) in the box, select the "Edit" button and click "Go".</p>
+				<p>Click the "Add Page" button.</p>
 			</div>
 			</div>
 
