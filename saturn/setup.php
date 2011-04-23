@@ -66,7 +66,7 @@
 
 if (sha1($_POST['ak']) == 'ae5aef9a6281833b3d72d1e70f76e99ccdc22611') {
 	
-	$sqlDbName = "stestdb";
+	$sqlDbName = "saturn";
 	$sqla = $_POST['sqladdress'];
 	$sqlu = $_POST['sqluser'];
 	$sqlp = $_POST['sqlpass'];
